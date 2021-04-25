@@ -13,8 +13,10 @@ $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));                   
 for (var index = 8; index < 17; index++) {
     if (index < 12) {
         $('.row').children('.hour').eq(index - 8).text(`${index} AM`)                   //adds the time on the time col
-    } else {
+    } else if (index === 12) {
         $('.row').children('.hour').eq(index - 8).text(`${index} PM`)
+    } else {
+        $('.row').children('.hour').eq(index - 8).text(`${index - 12} PM`)
     }
     if (index == moment().format('H')) {                                                //if-else statement for the bg color
         $('textarea').eq(index - 8).addClass('present')
